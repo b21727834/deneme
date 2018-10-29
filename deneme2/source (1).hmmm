@@ -1,0 +1,20 @@
+# Even or Odd
+#
+# This program will take a integer as input from the user,
+# then print 0 if the input is even and 1 if the input is odd
+#
+# Register Usage
+#   r1 -> User Input
+#   r2 -> Modulus value (i.e., 2)
+#   r3 -> Result of input % 2
+#   r4 -> Output value
+#
+0 read  r1        # Read the user's input      
+1 setn  r2 2      # We'll mod by 2 to check for odd/even
+2 mod   r3 r1 r2  # Compute input % 2 and store in r3
+3 jnez  r3 6      # If r3 == 1 (i.e., input is odd) jump
+4 setn  r4 0      # Otherwise, set our output value to 0...
+5 jumpn 7         # ...and jump to the output instruction
+6 setn  r4 1      # Set output to 1 (since input is odd)
+7 write r4        # Print output to the user
+8 halt            # And exit
